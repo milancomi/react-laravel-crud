@@ -1,0 +1,18 @@
+import React from 'react'
+import {Switch,Route} from 'react-router-dom'
+import Header from '../layout/home/header'
+import Login from '../components/home/Login'
+import Register from '../components/home/Register'
+
+
+export default function home(props) {
+    return (
+        <div>
+            <Header props={props} />
+            <Switch>
+            <Route exact path={props.match.path} component={Login} />
+            <Route path={`${props.match.path}/Register`} component={Register} />
+            </Switch>
+        </div>
+    );
+}
