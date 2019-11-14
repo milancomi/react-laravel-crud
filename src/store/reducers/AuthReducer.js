@@ -32,6 +32,22 @@ const AuthReducer =  (state = initState,action)=>{
                     ...state,
                     authResponse:'kod nije za djoku',
                 }
+                
+                case 'LOGIN_SUCCESS':
+                        console.log(action)
+                        return{
+                            ...state,
+                            authResponse:'redirecting to dashboard....',
+                        }
+                        case 'LOGIN_SUCCESS':
+                                console.log(action)
+                                return{
+                                    ...state,
+                                    authResponse:action.error.message,
+                                }
+        
+
+
                 default:
                     return state;
 
