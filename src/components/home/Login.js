@@ -16,7 +16,7 @@ constructor(props){
   handleSubmit = (e)=>{
     e.preventDefault();
     console.log(this.state)
-    this.props.UserLogin(this.creds,this.props.history)
+    this.props.UserLogin(this.state,this.props.history)
   }
 
   handleChange = (e)=>{

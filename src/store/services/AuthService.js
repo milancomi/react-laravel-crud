@@ -6,7 +6,7 @@ export const SignUpService = (credentials) =>{
 
     let signUpUrl = "user/register";
     return http.postData(credentials,signUpUrl).then(data=>{
-        console.log(JSON.stringify(data))
+        console.log(JSON.stringify(data)) 
         return data;
     }).catch(error =>console.log(error));
 }
@@ -20,5 +20,5 @@ export const LoginUser = (credentials,propsHistory) =>{
         return data;
     }).catch(error =>console.log(error));
 
-
 }
+

@@ -38,8 +38,8 @@ const AuthReducer =  (state = initState,action)=>{
                         return{
                             ...state,
                             authResponse:'redirecting to dashboard....',
-                        }
-                        case 'LOGIN_SUCCESS':
+                        } 
+                        case 'LOGIN_ERROR ':
                                 console.log(action)
                                 return{
                                     ...state,

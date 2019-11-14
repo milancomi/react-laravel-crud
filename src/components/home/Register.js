@@ -61,10 +61,6 @@ class Register extends Component {
           margin="normal"
           required
           onChange={this.handleChange}
-          required
-
-
-
         />
         </div>
         <div>
@@ -78,7 +74,6 @@ class Register extends Component {
           margin="normal"
           required
           onChange={this.handleChange}
-          required
 
         />
         </div>
@@ -101,7 +96,7 @@ class Register extends Component {
         Sign Up
       </Button>
       <br></br>
-      <b>{authResponse!=null && authResponse!="" ? authResponse:null}</b>
+      <b>{authResponse!==null && authResponse!=="" ? authResponse:null}</b>
       </form>
       </div>
         )
