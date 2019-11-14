@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button';
+import {connect} from 'react-redux'
+import {signUp} from '../../store/actions/AuthAction'
 
-export default class Register extends Component {
+
+class Register extends Component {
 
   constructor (props)
   {
@@ -26,14 +29,16 @@ export default class Register extends Component {
     e.preventDefault();
     console.log("button clicked")
     console.log(this.state);
+    this.props.signUp(this.state);
   }
 
 
     render() {
+      const {authResponse}= this.props;
         return (
 <div >
-                <h1>Register Form</h1>
-    <form noValidate autoComplete="off" onSubmit={this.handleSubmit}>
+                <h1>Kreiraj Nalog</h1>
+    <form autoComplete="off" onSubmit={this.handleSubmit}>
       <div>
         <TextField
           id="first_name"
@@ -56,6 +61,7 @@ export default class Register extends Component {
           margin="normal"
           required
           onChange={this.handleChange}
+          required
 
 
 
@@ -72,6 +78,7 @@ export default class Register extends Component {
           margin="normal"
           required
           onChange={this.handleChange}
+          required
 
         />
         </div>
@@ -85,15 +92,31 @@ export default class Register extends Component {
           margin="normal"
           type="password"
           onChange={this.handleChange}
+          required
 
 
         />
         </div>
         <Button color="primary" type="submit" style={{width:300}} variant="contained">
-        Register
+        Sign Up
       </Button>
+      <br></br>
+      <b>{authResponse!=null && authResponse!="" ? authResponse:null}</b>
       </form>
       </div>
         )
     }
 }
+
+const mapStateToProps = (state) =>
+{
+  return{
+    authResponse:state.auth.authResponse
+  }
+}
+const mapDispatchToProps = (dispatch)=>{
+  return{
+    signUp:(creds) => dispatch(signUp(creds))
+}
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Register)

@@ -1,38 +1,36 @@
 class HttpService{
     url = "http://localhost:8000/api";
 
-    postData = async(item,added_url) =>{
+    postData = async(item,added_url) => {
         const token = await localStorage.getItem('user');
         let requestOptions = {
             method:'POST',
             headers:{
                 'Authorization':token,
-                'Content-type':'Application/json'},
-                body:JSON.stringify(item)
-            }
+                'Content-type':'Application/json',
+            }, 
+            body:JSON.stringify(item)
+
         }
     
-        return fetch(this.url+"/"+added_url,requestOptions).then(
-            resonse=>Response.json());
+       return fetch(this.url+"/"+added_url, requestOptions).then(
+            response=>response.json());
+    } // OVDE JEBE
 
 
-    }
 getData = async(added_url)=>{
         const token = await localStorage.getItem('user');
         let requestOptions = {
             method:'GET',
             headers:{
                 'Authorization':token,
-                'Content-type':'Application/json'},
-                body:JSON.stringify(item)}
-
+                'Content-type':'Application/json'
             }
-    
 
         }
     
         return fetch(this.url+"/"+added_url,requestOptions).then(
-            resonse=>Response.json());
+            response=>response.json());
 
     }
 }
