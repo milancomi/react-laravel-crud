@@ -12,8 +12,9 @@ export const signUp = (credentials) =>{
     
         SignUpService(credentials).then((res)=>{
             console.log(res)
-            if(res.token!==null){  
-                localStorage.setItem("user",'Bearer '+res.token);
+            // if(res.token!==null){  
+            if(res.success===true){  
+            localStorage.setItem("user",'Bearer '+res.token);
             dispatch({type:'SIGNUP_SUCCESS'})
             }else{
                 dispatch({type:'SIGNUP_ERROR',res})

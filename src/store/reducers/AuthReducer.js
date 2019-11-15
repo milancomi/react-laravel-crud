@@ -23,7 +23,7 @@ const AuthReducer =  (state = initState,action)=>{
                         console.log(action)
                         return{
                             ...state,
-                            authResponse:'action.error.message',
+                            authResponse:action.res.message,
                         }
 
                     case 'CODE_ERROR':
@@ -43,7 +43,7 @@ const AuthReducer =  (state = initState,action)=>{
                                 console.log(action)
                                 return{
                                     ...state,
-                                    authResponse:action.error.message,
+                                    authResponse:action.res.message,
                                 }
         
 
