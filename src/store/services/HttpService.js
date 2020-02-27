@@ -15,7 +15,7 @@ class HttpService{
     
        return fetch(this.url+"/"+added_url, requestOptions).then(
             response=>response.json());
-    } // OVDE JEBE
+    } //
 
 
 getData = async(added_url)=>{
